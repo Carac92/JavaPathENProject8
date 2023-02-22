@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  tourGuide:
+    image: tourguide
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      -GPSUTIL_URL: gpsutil:8081
+      -TRIPPRICER_URL: trippricer:8082
+      -REWARDS_URL: rewards:8083
+    depends_on:
+      - gpsutil
+      - trippricer
+      - rewards
+    container_name: tourGuide
+  gpsutil:
+    image: gpsutil
+    restart: always
+    ports:
+      - "8081:8081"
+    container_name: gpsutil
+  trippricer:
+    image: trippricer
+    restart: always
+    ports:
+      - "8082:8082"
+    container_name: trippricer
+  rewards:
+    image: rewards
+    restart: always
+    ports:
+      - "8083:8083"
+    container_name: rewards
