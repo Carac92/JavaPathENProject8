@@ -62,7 +62,7 @@ public class TourGuideService {
 	}
 	
 	public User getUser(String userName) {
-<span class="fc" id="L65">		return internalUserMap.get(userName);</span>
+<span class="nc" id="L65">		return internalUserMap.get(userName);</span>
 	}
 	
 	public List&lt;User&gt; getAllUsers() {
@@ -70,10 +70,10 @@ public class TourGuideService {
 	}
 	
 	public void addUser(User user) {
-<span class="pc bpc" id="L73" title="1 of 2 branches missed.">		if(!internalUserMap.containsKey(user.getUserName())) {</span>
-<span class="fc" id="L74">			internalUserMap.put(user.getUserName(), user);</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">		if(!internalUserMap.containsKey(user.getUserName())) {</span>
+<span class="nc" id="L74">			internalUserMap.put(user.getUserName(), user);</span>
 		}
-<span class="fc" id="L76">	}</span>
+<span class="nc" id="L76">	}</span>
 	
 	public List&lt;Provider&gt; getTripDeals(User user) {
 <span class="nc" id="L79">		int cumulatativeRewardPoints = user.getUserRewards().stream().mapToInt(i -&gt; i.getRewardPoints()).sum();</span>

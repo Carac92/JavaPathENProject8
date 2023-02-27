@@ -37,3 +37,7 @@ B
 docker-compose.yml,3/5/35b8c13cf2eb2a194eada000eb310d65aed53b2a
 F
 TourGuide/build.gradle,4/f/4f9c1d769b3cf4fbc4c96a9cf8354e0aa02c8e42
+D
+TourGuide/Dockerfile,2/b/2b1b1120c0958c629cb51389f4aa4a079152696c
+E
+TripPricer/Dockerfile,e/0/e0f82751a3125cf3c1e956f448a2c421d21b8ef8
