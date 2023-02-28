@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
+/**
+ * Implementation of GpsUtil Service
+ * This class return a list of attractions and a visited location for a given user
+ */
 @Service
 public class GpsUtilServiceImpl implements GpsUtilService{
 

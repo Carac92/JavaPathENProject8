@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.UUID;
-
+/**
+ * Controller class for GpsUtil
+ * This class is used to expose the GpsUtil service to the application
+ */
 @RestController
 public class GpsUtilController {
     @Autowired
