@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
-
+/**
+ * Controller class for Rewards
+ * Return the reward points for a given attraction and user
+ */
 @RestController
 public class RewardsController {
     @Autowired
