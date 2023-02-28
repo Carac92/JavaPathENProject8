@@ -5,17 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1528b63-1bfd-4edd-bfdb-e62ce368d88e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TourGuide/src/main/java/tourGuide/config/Proxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TourGuide/src/main/java/tourGuide/repository/GpsUtilProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TourGuide/src/main/java/tourGuide/repository/RewardsProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TourGuide/src/main/java/tourGuide/repository/TripPricerProxy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rewards/src/main/java/com/tripMaster/Rewards/RewardsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rewards/src/main/java/com/tripMaster/Rewards/RewardsApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rewards/src/main/java/com/tripMaster/Rewards/config/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rewards/src/main/java/com/tripMaster/Rewards/config/Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rewards/src/main/java/com/tripMaster/Rewards/controller/RewardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rewards/src/main/java/com/tripMaster/Rewards/controller/RewardsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rewards/src/main/java/com/tripMaster/Rewards/service/RewardsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rewards/src/main/java/com/tripMaster/Rewards/service/RewardsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rewards/src/main/java/com/tripMaster/Rewards/service/RewardsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rewards/src/main/java/com/tripMaster/Rewards/service/RewardsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TripPricer/src/main/java/com/tripMaster/TripPricer/TripPricerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/TripPricer/src/main/java/com/tripMaster/TripPricer/TripPricerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TripPricer/src/main/java/com/tripMaster/TripPricer/config/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/TripPricer/src/main/java/com/tripMaster/TripPricer/config/Configuration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/.gradle/4.8.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/.gradle/4.8.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/.gradle/4.8.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/.gradle/4.8.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TripPricer/src/main/java/com/tripMaster/TripPricer/controller/TripPricerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TripPricer/src/main/java/com/tripMaster/TripPricer/controller/TripPricerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TripPricer/src/main/java/com/tripMaster/TripPricer/service/TripPricerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TripPricer/src/main/java/com/tripMaster/TripPricer/service/TripPricerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TripPricer/src/main/java/com/tripMaster/TripPricer/service/TripPricerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/TripPricer/src/main/java/com/tripMaster/TripPricer/service/TripPricerServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
