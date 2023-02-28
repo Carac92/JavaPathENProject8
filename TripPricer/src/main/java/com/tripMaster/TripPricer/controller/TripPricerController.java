@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
-
+/**
+ * Controller class for TripPricer
+ * Return a list of Provider for a trip with their price
+ */
 @RestController
 public class TripPricerController {
     @Autowired

@@ -7,6 +7,10 @@ import tripPricer.TripPricer;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Service class for TripPricer
+ * Return a list of Provider for a trip with their price
+ */
 @Service
 public class TripPricerServiceImpl implements TripPricerService {
 
