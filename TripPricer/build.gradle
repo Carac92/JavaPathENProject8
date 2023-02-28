@@ -20,6 +20,9 @@ configurations {
 
 repositories {
 	mavenCentral()
+	flatDir {
+		dirs 'libs'
+	}
 }
 
 dependencies {
@@ -27,6 +30,9 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation name: 'TripPricer', ext: 'jar'
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
 }
 
 tasks.named('test') {
