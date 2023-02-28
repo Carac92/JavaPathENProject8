@@ -1,4 +1,4 @@
-package com.tripMaster.GpsUtil;
+package com.tripMaster.GpsUtil.service;
 
 import com.tripMaster.GpsUtil.service.GpsUtilServiceImpl;
 import gpsUtil.location.VisitedLocation;
