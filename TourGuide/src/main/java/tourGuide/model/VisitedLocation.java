@@ -14,4 +14,16 @@ public class VisitedLocation {
             this.location = location;
             this.timeVisited = timeVisited;
         }
+
+    public UUID getUserId() {
+        return userId;
     }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public Date getTimeVisited() {
+        return timeVisited;
+    }
+}

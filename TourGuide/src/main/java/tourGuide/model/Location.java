@@ -8,4 +8,12 @@ public class Location {
         this.latitude = latitude;
         this.longitude = longitude;
     }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
 }
