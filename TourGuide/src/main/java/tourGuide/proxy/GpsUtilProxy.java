@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @FeignClient(name = "GpsUtilAPI", url = "${gpsUtilUrl}")
 public interface GpsUtilProxy {
-    @GetMapping(value = "/getAttractions")
+    @GetMapping(value = "/attractions")
     List<Attraction> getAttractions();
     @GetMapping(value = "/userLocation/{userId}")
     VisitedLocation getUserLocation(@PathVariable("userId") UUID userId);
