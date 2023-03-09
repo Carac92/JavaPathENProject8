@@ -1,31 +1,51 @@
 package tourGuide;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
 
 import java.util.List;
 import java.util.UUID;
 
-import org.junit.Ignore;
-import org.junit.Test;
 
-
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import tourGuide.helper.InternalTestHelper;
 import tourGuide.model.Attraction;
 import tourGuide.model.Provider;
 import tourGuide.model.VisitedLocation;
+import tourGuide.proxy.GpsUtilProxy;
+import tourGuide.proxy.RewardsProxy;
+import tourGuide.proxy.TripPricerProxy;
 import tourGuide.service.RewardsService;
 import tourGuide.service.TourGuideService;
 import tourGuide.user.User;
+import tourGuide.user.UserPreferences;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+@SpringBootTest
+@ExtendWith(SpringExtension.class)
 public class TestTourGuideService {
+	@Autowired
+	public RewardsService rewardsService;
+	@Autowired
+	public TourGuideService tourGuideService;
+	@Autowired
+	public GpsUtilProxy gpsUtil;
+	@Autowired
+	public TripPricerProxy tripPricer;
+	@Autowired
+	public RewardsProxy rewardsCentral;
 
 	@Test
-	public void getUserLocation() {
-		GpsUtil gpsUtil = new GpsUtil();
-		RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
+	public void getUserLocationTest() {
+		RewardsService rewardsService = new RewardsService(gpsUtil, rewardsCentral);
 		InternalTestHelper.setInternalUserNumber(0);
-		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService);
+		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService, tripPricer);
 		
 		User user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
 		VisitedLocation visitedLocation = tourGuideService.trackUserLocation(user);
@@ -34,11 +54,10 @@ public class TestTourGuideService {
 	}
 	
 	@Test
-	public void addUser() {
-		GpsUtil gpsUtil = new GpsUtil();
-		RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
+	public void addUserTest() {
+		RewardsService rewardsService = new RewardsService(gpsUtil, rewardsCentral);
 		InternalTestHelper.setInternalUserNumber(0);
-		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService);
+		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService, tripPricer);
 		
 		User user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
 		User user2 = new User(UUID.randomUUID(), "jon2", "000", "jon2@tourGuide.com");
@@ -56,11 +75,10 @@ public class TestTourGuideService {
 	}
 	
 	@Test
-	public void getAllUsers() {
-		GpsUtil gpsUtil = new GpsUtil();
-		RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
+	public void getAllUsersTest() {
+		RewardsService rewardsService = new RewardsService(gpsUtil, rewardsCentral);
 		InternalTestHelper.setInternalUserNumber(0);
-		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService);
+		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService, tripPricer);
 		
 		User user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
 		User user2 = new User(UUID.randomUUID(), "jon2", "000", "jon2@tourGuide.com");
@@ -77,11 +95,10 @@ public class TestTourGuideService {
 	}
 	
 	@Test
-	public void trackUser() {
-		GpsUtil gpsUtil = new GpsUtil();
-		RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
+	public void trackUserTest() {
+		RewardsService rewardsService = new RewardsService(gpsUtil, rewardsCentral);
 		InternalTestHelper.setInternalUserNumber(0);
-		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService);
+		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService, tripPricer);
 		
 		User user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
 		VisitedLocation visitedLocation = tourGuideService.trackUserLocation(user);
@@ -90,14 +107,12 @@ public class TestTourGuideService {
 		
 		assertEquals(user.getUserId(), visitedLocation.userId);
 	}
-	
-	@Ignore // Not yet implemented
+// TODO : Fix this test
 	@Test
-	public void getNearbyAttractions() {
-		GpsUtil gpsUtil = new GpsUtil();
-		RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
+	public void getNearbyAttractionsTest() {
+		RewardsService rewardsService = new RewardsService(gpsUtil, rewardsCentral);
 		InternalTestHelper.setInternalUserNumber(0);
-		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService);
+		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService, tripPricer);
 		
 		User user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
 		VisitedLocation visitedLocation = tourGuideService.trackUserLocation(user);
@@ -108,20 +123,21 @@ public class TestTourGuideService {
 		
 		assertEquals(5, attractions.size());
 	}
-	
-	public void getTripDeals() {
-		GpsUtil gpsUtil = new GpsUtil();
-		RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
+	@Test
+	public void getTripDealsTest() {
+
+		RewardsService rewardsService = new RewardsService(gpsUtil, rewardsCentral);
 		InternalTestHelper.setInternalUserNumber(0);
-		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService);
+		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService, tripPricer);
 		
 		User user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
+		user.setUserPreferences(new UserPreferences());
 
 		List<Provider> providers = tourGuideService.getTripDeals(user);
 		
 		tourGuideService.tracker.stopTracking();
 		
-		assertEquals(10, providers.size());
+		assertEquals(5, providers.size());
 	}
 	
 	

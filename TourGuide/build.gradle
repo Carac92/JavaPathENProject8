@@ -38,12 +38,12 @@ dependencies {
 	implementation group: 'com.jsoniter', name: 'jsoniter', version: '0.9.23'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'junit:junit:4.13.1'
-    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
 }
-tasks.named('test') {
+test {
     useJUnitPlatform()
 }
+
 
 jacoco {
     toolVersion = "0.8.4"
@@ -61,13 +61,13 @@ test.finalizedBy jacocoTestReport
 check.dependsOn jacocoTestCoverageVerification
 
 jacocoTestCoverageVerification {
-  violationRules {
-    rule {
-      limit {
-        counter = 'LINE'
-        value = 'COVEREDRATIO'
-        minimum = 0.5
-      }
+    violationRules {
+        rule {
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.5
+            }
+        }
     }
-  }
 }

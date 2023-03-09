@@ -29,16 +29,17 @@ import tourGuide.user.UserReward;
 @Service
 public class TourGuideService {
 	private Logger logger = LoggerFactory.getLogger(TourGuideService.class);
-	private GpsUtilProxy gpsUtil;
-	private RewardsService rewardsService;
-	private TripPricerProxy tripPricer;
+	private final GpsUtilProxy gpsUtil;
+	private final RewardsService rewardsService;
+	private final TripPricerProxy tripPricer;
 	public final Tracker tracker;
 	boolean testMode = true;
 	
-	public TourGuideService(GpsUtilProxy gpsUtil, RewardsService rewardsService) {
+	public TourGuideService(GpsUtilProxy gpsUtil, RewardsService rewardsService, TripPricerProxy tripPricer) {
 		this.gpsUtil = gpsUtil;
 		this.rewardsService = rewardsService;
-		
+		this.tripPricer = tripPricer;
+
 		if(testMode) {
 			logger.info("TestMode enabled");
 			logger.debug("Initializing users");
@@ -75,9 +76,9 @@ public class TourGuideService {
 	}
 	
 	public List<Provider> getTripDeals(User user) {
-		int cumulatativeRewardPoints = user.getUserRewards().stream().mapToInt(i -> i.getRewardPoints()).sum();
+		int cumulativeRewardPoints = user.getUserRewards().stream().mapToInt(UserReward::getRewardPoints).sum();
 		List<Provider> providers = tripPricer.getPrice(tripPricerApiKey, user.getUserId(), user.getUserPreferences().getNumberOfAdults(), 
-				user.getUserPreferences().getNumberOfChildren(), user.getUserPreferences().getTripDuration(), cumulatativeRewardPoints);
+				user.getUserPreferences().getNumberOfChildren(), user.getUserPreferences().getTripDuration(), cumulativeRewardPoints);
 		user.setTripDeals(providers);
 		return providers;
 	}
@@ -88,7 +89,7 @@ public class TourGuideService {
 		rewardsService.calculateRewards(user);
 		return visitedLocation;
 	}
-
+// TODO : Change this method to get the 5 nearby attractions using a hashmap <Attraction, Double distance> sorted by distance.
 	public List<Attraction> getNearByAttractions(VisitedLocation visitedLocation) {
 		List<Attraction> nearbyAttractions = new ArrayList<>();
 		for(Attraction attraction : gpsUtil.getAttractions()) {
