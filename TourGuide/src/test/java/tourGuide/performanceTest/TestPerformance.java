@@ -85,11 +85,11 @@ public class TestPerformance {
 	
 
 	@Test
-	public void highVolumeGetRewards() {
+	public void highVolumeGetRewards() throws InterruptedException {
 		RewardsService rewardsService = new RewardsService(gpsUtil, rewardsCentral);
 
 		// Users should be incremented up to 100,000, and test finishes within 20 minutes
-		InternalTestHelper.setInternalUserNumber(100);
+		InternalTestHelper.setInternalUserNumber(100000);
 		StopWatch stopWatch = new StopWatch();
 		stopWatch.start();
 		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService, tripPricer);
@@ -99,7 +99,9 @@ public class TestPerformance {
 		allUsers = tourGuideService.getAllUsers();
 		allUsers.forEach(u -> u.addToVisitedLocations(new VisitedLocation(u.getUserId(), attraction, new Date())));
 	     
-	    allUsers.forEach(u->rewardsService.calculateRewards(u));
+	    allUsers.forEach(u->rewardsService.calculateRewardsAsync(u));
+
+		rewardsService.shutdown();
 	    
 		for(User user : allUsers) {
 			assertTrue(user.getUserRewards().size() > 0);

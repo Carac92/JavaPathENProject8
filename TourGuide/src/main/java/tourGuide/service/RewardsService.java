@@ -14,12 +14,16 @@ import tourGuide.user.UserReward;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class RewardsService {
     private static final double STATUTE_MILES_PER_NAUTICAL_MILE = 1.15077945;
 
 	// proximity in miles
+	private ExecutorService executorService = Executors.newFixedThreadPool(100);
     private int defaultProximityBuffer = 10;
 	private int proximityBuffer = defaultProximityBuffer;
 	private int attractionProximityRange = 200;
@@ -54,6 +58,20 @@ public class RewardsService {
 					}
 				}
 			}
+		}
+	}
+	public void calculateRewardsAsync(User user) {
+		executorService.submit(() -> calculateRewards(user));
+	}
+	public void shutdown() throws InterruptedException {
+		executorService.shutdown();
+		try {
+			if (!executorService.awaitTermination(20, TimeUnit.MINUTES)) {
+				executorService.shutdownNow();
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			executorService.shutdownNow();
 		}
 	}
 	
