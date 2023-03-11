@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.UUID;
 
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -107,7 +106,6 @@ public class TestTourGuideService {
 		
 		assertEquals(user.getUserId(), visitedLocation.userId);
 	}
-// TODO : Fix this test
 	@Test
 	public void getNearbyAttractionsTest() {
 		RewardsService rewardsService = new RewardsService(gpsUtil, rewardsCentral);
@@ -117,7 +115,7 @@ public class TestTourGuideService {
 		User user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
 		VisitedLocation visitedLocation = tourGuideService.trackUserLocation(user);
 		
-		List<Attraction> attractions = tourGuideService.getNearByAttractions(visitedLocation);
+		List<Attraction> attractions = tourGuideService.getTheFiveNearByAttractions(visitedLocation);
 		
 		tourGuideService.tracker.stopTracking();
 		

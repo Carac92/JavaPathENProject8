@@ -2,13 +2,7 @@ package tourGuide.service;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -89,16 +83,19 @@ public class TourGuideService {
 		rewardsService.calculateRewards(user);
 		return visitedLocation;
 	}
-// TODO : Change this method to get the 5 nearby attractions using a hashmap <Attraction, Double distance> sorted by distance.
-	public List<Attraction> getNearByAttractions(VisitedLocation visitedLocation) {
-		List<Attraction> nearbyAttractions = new ArrayList<>();
+	public List<Attraction> getTheFiveNearByAttractions(VisitedLocation visitedLocation) {
+		HashMap<Attraction,Double> nearbyAttractions = new HashMap<>();
 		for(Attraction attraction : gpsUtil.getAttractions()) {
-			if(rewardsService.isWithinAttractionProximity(attraction, visitedLocation.location)) {
-				nearbyAttractions.add(attraction);
-			}
+			double distance = rewardsService.getDistance(attraction, visitedLocation.location);
+			nearbyAttractions.put(attraction, distance);
 		}
-		
-		return nearbyAttractions;
+		List <Attraction> nearbyAttractionsList = nearbyAttractions.entrySet()
+				.stream()
+				.sorted(Map.Entry.comparingByValue())
+				.limit(5)
+				.map(Map.Entry::getKey)
+				.collect(Collectors.toList());
+		return nearbyAttractionsList;
 	}
 	
 	private void addShutDownHook() {
