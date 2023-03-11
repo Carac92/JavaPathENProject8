@@ -70,10 +70,10 @@ public class User {
 <span class="nc" id="L70">	}</span>
 	
 	public void addUserReward(UserReward userReward) {
-<span class="nc bnc" id="L73" title="All 2 branches missed.">		if(userRewards.stream().noneMatch(r -&gt; r.attraction.getAttractionName().equals(userReward.attraction.getAttractionName()))) {</span>
-<span class="nc" id="L74">			userRewards.add(userReward);</span>
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">		if(userRewards.stream().noneMatch(r -&gt; r.attraction.getAttractionName().equals(userReward.attraction.getAttractionName()))) {</span>
+<span class="fc" id="L74">			userRewards.add(userReward);</span>
 		}
-<span class="nc" id="L76">	}</span>
+<span class="fc" id="L76">	}</span>
 	
 	public List&lt;UserReward&gt; getUserRewards() {
 <span class="fc" id="L79">		return userRewards;</span>

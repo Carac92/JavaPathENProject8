@@ -1,4 +1,4 @@
-package tourGuide;
+package tourGuide.performanceTest;
 
 import org.apache.commons.lang3.time.StopWatch;
 import org.junit.jupiter.api.Disabled;
@@ -61,10 +61,10 @@ public class TestPerformance {
 
 	//@Disabled
 	@Test
-	public void highVolumeTrackLocation() {
+	public void highVolumeTrackLocation() throws InterruptedException {
 		RewardsService rewardsService = new RewardsService(gpsUtil, rewardsCentral );
 		// Users should be incremented up to 100,000, and test finishes within 15 minutes
-		InternalTestHelper.setInternalUserNumber(100);
+		InternalTestHelper.setInternalUserNumber(100000);
 		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService, tripPricer);
 
 		List<User> allUsers = new ArrayList<>();
@@ -73,8 +73,9 @@ public class TestPerformance {
 	    StopWatch stopWatch = new StopWatch();
 		stopWatch.start();
 		for(User user : allUsers) {
-			tourGuideService.trackUserLocation(user);
+			tourGuideService.trackUserLocationAsync(user);
 		}
+		tourGuideService.shutdown();
 		stopWatch.stop();
 		tourGuideService.tracker.stopTracking();
 

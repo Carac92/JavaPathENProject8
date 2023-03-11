@@ -45,7 +45,7 @@ import tourGuide.user.User;
     @RequestMapping(&quot;/getNearbyAttractions&quot;) 
     public String getNearbyAttractions(@RequestParam String userName) {
 <span class="nc" id="L47">    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));</span>
-<span class="nc" id="L48">    	return JsonStream.serialize(tourGuideService.getNearByAttractions(visitedLocation));</span>
+<span class="nc" id="L48">    	return JsonStream.serialize(tourGuideService.getTheFiveNearByAttractions(visitedLocation));</span>
     }
     
     @RequestMapping(&quot;/getRewards&quot;) 

@@ -3,6 +3,9 @@ package tourGuide.service;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -27,6 +30,7 @@ public class TourGuideService {
 	private final RewardsService rewardsService;
 	private final TripPricerProxy tripPricer;
 	public final Tracker tracker;
+	public final ExecutorService executorService = Executors.newFixedThreadPool(100);
 	boolean testMode = true;
 	
 	public TourGuideService(GpsUtilProxy gpsUtil, RewardsService rewardsService, TripPricerProxy tripPricer) {
@@ -83,19 +87,32 @@ public class TourGuideService {
 		rewardsService.calculateRewards(user);
 		return visitedLocation;
 	}
+	public void trackUserLocationAsync(User user) {
+		executorService.execute(() -> trackUserLocation(user));
+	}
+	public void shutdown() throws InterruptedException {
+		executorService.shutdown();
+		try{
+			if (!executorService.awaitTermination(15, TimeUnit.MINUTES)) {
+				executorService.shutdownNow();
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			executorService.shutdownNow();
+		}
+	}
 	public List<Attraction> getTheFiveNearByAttractions(VisitedLocation visitedLocation) {
 		HashMap<Attraction,Double> nearbyAttractions = new HashMap<>();
 		for(Attraction attraction : gpsUtil.getAttractions()) {
 			double distance = rewardsService.getDistance(attraction, visitedLocation.location);
 			nearbyAttractions.put(attraction, distance);
 		}
-		List <Attraction> nearbyAttractionsList = nearbyAttractions.entrySet()
+		return nearbyAttractions.entrySet()
 				.stream()
 				.sorted(Map.Entry.comparingByValue())
 				.limit(5)
 				.map(Map.Entry::getKey)
 				.collect(Collectors.toList());
-		return nearbyAttractionsList;
 	}
 	
 	private void addShutDownHook() {

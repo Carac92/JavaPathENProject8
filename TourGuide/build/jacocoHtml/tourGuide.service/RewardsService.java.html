@@ -47,10 +47,10 @@ public class RewardsService {
 		
 <span class="fc bfc" id="L48" title="All 2 branches covered.">		for(VisitedLocation visitedLocation : userLocations) {</span>
 <span class="fc bfc" id="L49" title="All 2 branches covered.">			for(Attraction attraction : attractions) {</span>
-<span class="pc bpc" id="L50" title="1 of 2 branches missed.">				if(user.getUserRewards().stream().noneMatch(r -&gt; r.attraction.getAttractionName()</span>
-<span class="nc" id="L51">						.equals(attraction.getAttractionName()))) {</span>
-<span class="pc bpc" id="L52" title="1 of 2 branches missed.">					if(nearAttraction(visitedLocation, attraction)) {</span>
-<span class="nc" id="L53">						user.addUserReward(new UserReward(visitedLocation, attraction, getRewardPoints(attraction, user)));</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">				if(user.getUserRewards().stream().noneMatch(r -&gt; r.attraction.getAttractionName()</span>
+<span class="fc" id="L51">						.equals(attraction.getAttractionName()))) {</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">					if(nearAttraction(visitedLocation, attraction)) {</span>
+<span class="fc" id="L53">						user.addUserReward(new UserReward(visitedLocation, attraction, getRewardPoints(attraction, user)));</span>
 					}
 				}
 <span class="fc" id="L56">			}</span>
@@ -62,11 +62,11 @@ public class RewardsService {
 	}
 	
 	private boolean nearAttraction(VisitedLocation visitedLocation, Attraction attraction) {
-<span class="pc bpc" id="L65" title="1 of 2 branches missed.">		return (getDistance(attraction, visitedLocation.getLocation()) &lt; proximityBuffer);</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">		return (getDistance(attraction, visitedLocation.getLocation()) &lt; proximityBuffer);</span>
 	}
 	
 	private int getRewardPoints(Attraction attraction, User user) {
-<span class="nc" id="L69">		return rewardsCentral.getAttractionRewardPoints(attraction.getAttractionId(), user.getUserId());</span>
+<span class="fc" id="L69">		return rewardsCentral.getAttractionRewardPoints(attraction.getAttractionId(), user.getUserId());</span>
 	}
 	
 	public double getDistance(Location loc1, Location loc2) {

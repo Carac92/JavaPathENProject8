@@ -1,4 +1,4 @@
-package tourGuide;
+package tourGuide.serviceTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -69,7 +69,6 @@ public class RewardsServiceTest {
 		rewardsService.calculateRewards(tourGuideService.getAllUsers().get(0));
 		List<UserReward> userRewards = tourGuideService.getUserRewards(tourGuideService.getAllUsers().get(0));
 		tourGuideService.tracker.stopTracking();
-		List<Attraction> attractions = gpsUtil.getAttractions();
 
 		assertEquals(gpsUtil.getAttractions().size(), userRewards.size());
 	}

@@ -1,4 +1,4 @@
-package tourGuide;
+package tourGuide.serviceTest;
 
 
 
@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
-public class TestTourGuideService {
+public class TourGuideServiceTest {
 	@Autowired
 	public RewardsService rewardsService;
 	@Autowired
