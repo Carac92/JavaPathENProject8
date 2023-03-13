@@ -1,4 +1,4 @@
-package tourGuide;
+package tourGuide.controller;
 
 import java.util.List;
 
@@ -43,9 +43,9 @@ public class TourGuideController {
         // The reward points for visiting each Attraction.
         //    Note: Attraction reward points can be gathered from RewardsCentral
     @RequestMapping("/getNearbyAttractions") 
-    public String getNearbyAttractions(@RequestParam String userName) {
+    public String getTheFiveNearestAttractions(@RequestParam String userName) {
     	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));
-    	return JsonStream.serialize(tourGuideService.getTheFiveNearByAttractions(visitedLocation));
+    	return JsonStream.serialize(tourGuideService.getTheFiveNearByAttractionsDTO(visitedLocation, getUser(userName)));
     }
     
     @RequestMapping("/getRewards") 
@@ -65,7 +65,7 @@ public class TourGuideController {
     	//        ...
     	//     }
     	
-    	return JsonStream.serialize("");
+    	return JsonStream.serialize(tourGuideService.getCurrentLocationsDTO());
     }
     
     @RequestMapping("/getTripDeals")

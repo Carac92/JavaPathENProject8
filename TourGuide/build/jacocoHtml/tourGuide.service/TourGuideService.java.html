@@ -30,7 +30,7 @@ public class TourGuideService {
 	private final RewardsService rewardsService;
 	private final TripPricerProxy tripPricer;
 	public final Tracker tracker;
-<span class="fc" id="L33">	public final ExecutorService executorService = Executors.newFixedThreadPool(100);</span>
+<span class="fc" id="L33">	public final ExecutorService executorService = Executors.newFixedThreadPool(1000);</span>
 <span class="fc" id="L34">	boolean testMode = true;</span>
 	
 <span class="fc" id="L36">	public TourGuideService(GpsUtilProxy gpsUtil, RewardsService rewardsService, TripPricerProxy tripPricer) {</span>

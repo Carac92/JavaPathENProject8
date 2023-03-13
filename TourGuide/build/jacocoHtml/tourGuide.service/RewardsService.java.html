@@ -61,8 +61,8 @@ public class RewardsService {
 <span class="fc" id="L61">		}</span>
 <span class="fc" id="L62">	}</span>
 	public void calculateRewardsAsync(User user) {
-<span class="fc" id="L64">		executorService.submit(() -&gt; calculateRewards(user));</span>
-<span class="fc" id="L65">	}</span>
+<span class="nc" id="L64">		executorService.submit(() -&gt; calculateRewards(user));</span>
+<span class="nc" id="L65">	}</span>
 	public void shutdown() throws InterruptedException {
 <span class="fc" id="L67">		executorService.shutdown();</span>
 		try {

@@ -12,6 +12,8 @@ import java.util.stream.IntStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import tourGuide.dto.AttractionDTO;
+import tourGuide.dto.CurrentLocationDTO;
 import tourGuide.helper.InternalTestHelper;
 import tourGuide.model.Attraction;
 import tourGuide.model.Location;
@@ -113,6 +115,27 @@ public class TourGuideService {
 				.limit(5)
 				.map(Map.Entry::getKey)
 				.collect(Collectors.toList());
+	}
+	public List<AttractionDTO> getTheFiveNearByAttractionsDTO(VisitedLocation visitedLocation, User user){
+		List<AttractionDTO> attractionDTOList = new ArrayList<>();
+		List<Attraction> attractionList = getTheFiveNearByAttractions(visitedLocation);
+		for(Attraction attraction : attractionList) {
+			AttractionDTO attractionDTO = new AttractionDTO(attraction.attractionName, attraction.city,
+					attraction.state, attraction.latitude, attraction.longitude, visitedLocation,
+					rewardsService.getDistance(attraction, visitedLocation.getLocation()),
+					rewardsService.getRewardPoints(attraction, user));
+			attractionDTOList.add(attractionDTO);
+		}
+		return attractionDTOList;
+	}
+	public List<CurrentLocationDTO> getCurrentLocationsDTO(){
+		List<CurrentLocationDTO> currentLocationDTOList = new ArrayList<>();
+		for(User user : getAllUsers()) {
+			CurrentLocationDTO currentLocationDTO = new CurrentLocationDTO(user.getUserId(),
+					user.getLastVisitedLocation().location.latitude, user.getLastVisitedLocation().location.longitude);
+			currentLocationDTOList.add(currentLocationDTO);
+		}
+		return currentLocationDTOList;
 	}
 	
 	private void addShutDownHook() {
