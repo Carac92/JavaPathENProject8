@@ -20,4 +20,12 @@ public class CurrentLocationDTO extends Location {
     public void setUserId(UUID userId) {
         this.userId = userId;
     }
+
+    @Override
+    public String toString() {
+        return "{" + userId + ": {" +
+                "longitude:" + longitude +
+                ", latitude :" + latitude + "}" +
+                '}';
+    }
 }
