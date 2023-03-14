@@ -8,7 +8,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -77,8 +76,14 @@ public class TourGuideService {
 	
 	public List<Provider> getTripDeals(User user) {
 		int cumulativeRewardPoints = user.getUserRewards().stream().mapToInt(UserReward::getRewardPoints).sum();
-		List<Provider> providers = tripPricer.getPrice(tripPricerApiKey, user.getUserId(), user.getUserPreferences().getNumberOfAdults(), 
-				user.getUserPreferences().getNumberOfChildren(), user.getUserPreferences().getTripDuration(), cumulativeRewardPoints);
+		List<Provider> providers = tripPricer.getPrice(
+				tripPricerApiKey,
+				user.getUserId(),
+				user.getUserPreferences().getNumberOfAdults(),
+				user.getUserPreferences().getNumberOfChildren(),
+				user.getUserPreferences().getTripDuration(),
+				cumulativeRewardPoints
+		);
 		user.setTripDeals(providers);
 		return providers;
 	}
@@ -120,10 +125,14 @@ public class TourGuideService {
 		List<AttractionDTO> attractionDTOList = new ArrayList<>();
 		List<Attraction> attractionList = getTheFiveNearByAttractions(visitedLocation);
 		for(Attraction attraction : attractionList) {
-			AttractionDTO attractionDTO = new AttractionDTO(attraction.attractionName, attraction.city,
-					attraction.state, attraction.latitude, attraction.longitude, visitedLocation,
+			AttractionDTO attractionDTO = new AttractionDTO(
+					attraction.latitude,
+					attraction.longitude,
+					attraction.attractionName,
+					visitedLocation,
 					rewardsService.getDistance(attraction, visitedLocation.getLocation()),
-					rewardsService.getRewardPoints(attraction, user));
+					rewardsService.getRewardPoints(attraction, user)
+			);
 			attractionDTOList.add(attractionDTO);
 		}
 		return attractionDTOList;
@@ -131,8 +140,11 @@ public class TourGuideService {
 	public List<CurrentLocationDTO> getCurrentLocationsDTO(){
 		List<CurrentLocationDTO> currentLocationDTOList = new ArrayList<>();
 		for(User user : getAllUsers()) {
-			CurrentLocationDTO currentLocationDTO = new CurrentLocationDTO(user.getUserId(),
-					user.getLastVisitedLocation().location.latitude, user.getLastVisitedLocation().location.longitude);
+			CurrentLocationDTO currentLocationDTO = new CurrentLocationDTO(
+					user.getUserId(),
+					user.getLastVisitedLocation().location.latitude,
+					user.getLastVisitedLocation().location.longitude
+			);
 			currentLocationDTOList.add(currentLocationDTO);
 		}
 		return currentLocationDTOList;
@@ -169,7 +181,14 @@ public class TourGuideService {
 	
 	private void generateUserLocationHistory(User user) {
 		IntStream.range(0, 3).forEach(i-> {
-			user.addToVisitedLocations(new VisitedLocation(user.getUserId(), new Location(generateRandomLatitude(), generateRandomLongitude()), getRandomTime()));
+			user.addToVisitedLocations(new VisitedLocation(
+					user.getUserId(),
+					new Location(
+							generateRandomLatitude(),
+							generateRandomLongitude()),
+							getRandomTime()
+					)
+			);
 		});
 	}
 	

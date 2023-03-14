@@ -1,7 +1,6 @@
 package tourGuide.dto;
 
 import tourGuide.model.Location;
-import tourGuide.user.User;
 
 import java.util.UUID;
 
