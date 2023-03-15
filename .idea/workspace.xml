@@ -5,53 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1528b63-1bfd-4edd-bfdb-e62ce368d88e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/CI.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/.gradle/7.6/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/.gradle/7.6/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/.gradle/7.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/.gradle/7.6/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/.gradle/7.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/.gradle/7.6/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/.gradle/7.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/.gradle/7.6/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/.gradle/7.6/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/.gradle/7.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/controller/TourGuideController.class" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/controller/TourGuideController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/tracker/Tracker.class" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/tracker/Tracker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/user/UserPreferences.class" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/user/UserPreferences.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/user/UserReward.class" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/user/UserReward.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/classes/java/test/tourGuide/performanceTest/TestPerformance.class" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/classes/java/test/tourGuide/performanceTest/TestPerformance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/classes/java/test/tourGuide/serviceTest/RewardsServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/classes/java/test/tourGuide/serviceTest/RewardsServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/classes/java/test/tourGuide/serviceTest/TourGuideServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/classes/java/test/tourGuide/serviceTest/TourGuideServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacoco/test.exec" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacoco/test.exec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/jacoco-sessions.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/jacoco-sessions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.controller/TourGuideController.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.controller/TourGuideController.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.controller/TourGuideController.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.controller/TourGuideController.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/TourGuideService.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/TourGuideService.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/TourGuideService.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/TourGuideService.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/index.source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.tracker/Tracker.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.tracker/Tracker.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.tracker/Tracker.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.tracker/Tracker.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.user/User.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.user/User.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.user/User.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.user/User.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.user/UserPreferences.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.user/UserPreferences.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.user/UserPreferences.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.user/UserPreferences.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.user/UserReward.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.user/UserReward.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.user/UserReward.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.user/UserReward.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide/Application.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide/Application.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide/Application.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide/Application.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/reports/jacoco/test/jacocoTestReport.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/reports/jacoco/test/jacocoTestReport.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/reports/tests/test/classes/tourGuide.performanceTest.TestPerformance.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/reports/tests/test/classes/tourGuide.performanceTest.TestPerformance.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/reports/tests/test/packages/tourGuide.performanceTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/reports/tests/test/packages/tourGuide.performanceTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/test-results/test/TEST-tourGuide.performanceTest.TestPerformance.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/test-results/test/TEST-tourGuide.performanceTest.TestPerformance.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/tmp/compileJava/compileTransaction/stash-dir/TourGuideController.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourGuide/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/CI.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/CI.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,6 +188,7 @@
       <workItem from="1677518832899" duration="600000" />
       <workItem from="1677574768016" duration="598000" />
       <workItem from="1678881768163" duration="2956000" />
+      <workItem from="1678889798689" duration="306000" />
     </task>
     <servers />
   </component>
