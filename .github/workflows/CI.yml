@@ -80,7 +80,7 @@ jobs:
           run: |
             java -jar Rewards/build/libs/rewards-1.0.0.jar &
             java -jar GpsUtil/build/libs/gpsUtil-1.0.0.jar &
-            java -jar TripPricer/build/libs/tripPricer1.0.0.jar &
+            java -jar TripPricer/build/libs/tripPricer-1.0.0.jar &
             sleep 30
         - name: Build TourGuide
           run : |
