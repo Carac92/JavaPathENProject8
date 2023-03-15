@@ -78,13 +78,10 @@ jobs:
     # Lance le conteneur Docker pour le projet GpsUtil
         - name: Deploy GpsUtil
           run: |
-            cd Rewards && java -jar build/libs/rewards-1.0.0.jar &
+            java -jar Rewards/build/libs/rewards-1.0.0.jar &
+            java -jar GpsUtil/build/libs/gpsUtil-1.0.0.jar &
+            java -jar TripPricer/build/libs/tripPricer1.0.0.jar &
             sleep 30
-            cd ../GpsUtil && java -jar build/libs/gpsUtil-1.0.0.jar &
-            sleep 30
-            cd ../TripPricer && java -jar build/libs/tripPricer1.0.0.jar &
-            sleep 30
-            cd..
         - name: Build TourGuide
           run : |
             cd TourGuide
