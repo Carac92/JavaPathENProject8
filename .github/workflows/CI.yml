@@ -74,24 +74,17 @@ jobs:
             ./gradlew clean
             ./gradlew build
             cd ..
-        - name: Build GpsUtil Docker Image
-          run: docker build -t gpsutil:latest ./GpsUtil
 
     # Lance le conteneur Docker pour le projet GpsUtil
-        - name: Deploy GpsUtil Docker Container
+        - name: Deploy GpsUtil
           run: |
-            docker run -d --name gpsutil gpsutil:latest
+            cd Rewards && java -jar build/libs/rewards.jar &
             sleep 30
-        - name : Deploy Rewards Docker Container
-          run: |
-            docker build -t rewards:latest ./Rewards
-            docker run -d --name rewards rewards:latest
+            cd ../GpsUtil && java -jar build/libs/gpsUtil.jar &
             sleep 30
-        - name: Deploy TripPricer Docker Container
-          run: |
-            docker build -t trippricer:latest ./TripPricer
-            docker run -d --name trippricer trippricer:latest
+            cd ../TripPricer && java -jar build/libs/tripPricer.jar &
             sleep 30
+            cd..
         - name: Build TourGuide
           run : |
             cd TourGuide
