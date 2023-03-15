@@ -31,12 +31,15 @@ jobs:
       - name: Build projects
         run: |
           cd Rewards
+          ./gradlew clean
           ./gradlew build
           cd ..
           cd GpsUtil
+          ./gradlew clean
           ./gradlew build
           cd ..
           cd TripPricer
+          ./gradlew clean
           ./gradlew build
           cd ..
   deploy_build:
@@ -60,12 +63,15 @@ jobs:
         - name: Build projects
           run: |
             cd Rewards
+            ./gradlew clean
             ./gradlew build
             cd ..
             cd GpsUtil
+            ./gradlew clean
             ./gradlew build
             cd ..
             cd TripPricer
+            ./gradlew clean
             ./gradlew build
             cd ..
         - name: Build GpsUtil Docker Image
