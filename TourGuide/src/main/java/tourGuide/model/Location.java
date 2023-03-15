@@ -1,14 +1,22 @@
 package tourGuide.model;
 
-import lombok.Data;
-
-@Data
+/**
+ * Location class is used to store the location information
+ */
 public class Location {
-    public double longitude;
-    public double latitude;
+    public final double longitude;
+    public final double latitude;
 
     public Location(double latitude, double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
     }
 }

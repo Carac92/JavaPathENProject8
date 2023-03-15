@@ -4,7 +4,10 @@ import javax.money.CurrencyUnit;
 import javax.money.Monetary;
 
 import org.javamoney.moneta.Money;
-
+/**
+ * UserPreferences class
+ * This class is used to store the user preferences
+ */
 
 public class UserPreferences {
 	

@@ -4,6 +4,10 @@ package tourGuide.user;
 import tourGuide.model.Attraction;
 import tourGuide.model.VisitedLocation;
 
+/**
+ * UserReward class
+ * This class is used to store the user reward information
+ */
 public class UserReward {
 
 	public final VisitedLocation visitedLocation;

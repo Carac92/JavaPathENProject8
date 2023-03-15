@@ -1,13 +1,17 @@
 package tourGuide.user;
 
+import tourGuide.model.Provider;
+import tourGuide.model.VisitedLocation;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import tourGuide.model.Provider;
-import tourGuide.model.VisitedLocation;
-
+/**
+ * User class
+ * This class is used to store the user information
+ */
 public class User {
 	private final UUID userId;
 	private final String userName;
@@ -70,7 +74,7 @@ public class User {
 	}
 	
 	public void addUserReward(UserReward userReward) {
-		if(userRewards.stream().filter(r -> !r.attraction.attractionName.equals(userReward.attraction)).count() == 0) {
+		if(userRewards.stream().noneMatch(r -> r.attraction.getAttractionName().equals(userReward.attraction.getAttractionName()))) {
 			userRewards.add(userReward);
 		}
 	}

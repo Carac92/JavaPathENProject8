@@ -1,0 +1,55 @@
+# Name of the workflow
+name: Continuous Integration
+
+# Event starting the workflow
+on:
+  push:
+    branches:
+      - '*' # all branches
+
+# Work environment
+jobs:
+  build_deploy_build:
+      runs-on: ubuntu-20.04
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v3
+        - uses: actions/setup-java@v3
+          with:
+            distribution: temurin
+            java-version: 11
+
+        # Install gradle
+        - name: Setup Gradle
+          uses: gradle/gradle-build-action@v2
+          with:
+            gradle-version: '7.3.3'
+
+    # Build the projects
+        - name: build
+          run: |
+            cd Rewards
+            ./gradlew clean
+            ./gradlew build
+            cd ..
+            cd GpsUtil
+            ./gradlew clean
+            ./gradlew build
+            cd ..
+            cd TripPricer
+            ./gradlew clean
+            ./gradlew build
+            cd ..
+
+    # Deploy the projects to build the TourGuide project
+        - name: Deploy_GpsUtil_Rewards_and_TripPricer
+          run: |
+            java -jar Rewards/build/libs/rewards-1.0.0.jar &
+            java -jar GpsUtil/build/libs/gpsUtil-1.0.0.jar &
+            java -jar TripPricer/build/libs/tripPricer-1.0.0.jar &
+            sleep 30
+        - name: Build TourGuide
+          run : |
+            cd TourGuide
+            chmod +x gradlew
+            ./gradlew build
