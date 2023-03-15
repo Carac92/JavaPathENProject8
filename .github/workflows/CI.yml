@@ -16,11 +16,15 @@ jobs:
       # Étapes à effectuer pour le job "build"
       steps:
         - name: Checkout repository
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
+        - uses: actions/setup-java@v3
+          with:
+            distribution: temurin
+            java-version: 11
 
         # Installe Gradle sur la machine virtuelle
         - name: Setup Gradle
-          uses: gradle/gradle-build-action@v1.4.0
+          uses: gradle/gradle-build-action@v2
           with:
             gradle-version: '7.3.3'
 
@@ -40,33 +44,39 @@ jobs:
         needs: build
         runs-on: ubuntu-20.04
         steps:
-        - name: Checkout repository
-          uses: actions/checkout@v2
-        - name: Setup Gradle
-          uses: gradle/gradle-build-action@v1.4.0
-          with:
+          - name: Checkout repository
+            uses: actions/checkout@v3
+          - uses: actions/setup-java@v3
+            with:
+              distribution: temurin
+              java-version: 11
+
+          # Installe Gradle sur la machine virtuelle
+          - name: Setup Gradle
+            uses: gradle/gradle-build-action@v2
+            with:
               gradle-version: '7.3.3'
 
       # Construit l'image Docker pour le projet GpsUtil
-        - name: Build GpsUtil Docker Image
-          run: docker build -t gpsutil:latest ./GpsUtil
+          - name: Build GpsUtil Docker Image
+            run: docker build -t gpsutil:latest ./GpsUtil
 
       # Lance le conteneur Docker pour le projet GpsUtil
-        - name: Deploy GpsUtil Docker Container
-          run: |
-            docker run -d --name gpsutil gpsutil:latest
-            sleep 30
-        - name : Deploy Rewards Docker Container
-          run: |
-            docker build -t rewards:latest ./Rewards
-            docker run -d --name rewards rewards:latest
-            sleep 30
-        - name: Deploy TripPricer Docker Container
-          run: |
-            docker build -t trippricer:latest ./TripPricer
-            docker run -d --name trippricer trippricer:latest
-            sleep 30
-        - name: Build TourGuide
-          run : |
-            cd TourGuide
-            ./gradlew build
+          - name: Deploy GpsUtil Docker Container
+            run: |
+              docker run -d --name gpsutil gpsutil:latest
+              sleep 30
+          - name : Deploy Rewards Docker Container
+            run: |
+              docker build -t rewards:latest ./Rewards
+              docker run -d --name rewards rewards:latest
+              sleep 30
+          - name: Deploy TripPricer Docker Container
+            run: |
+              docker build -t trippricer:latest ./TripPricer
+              docker run -d --name trippricer trippricer:latest
+              sleep 30
+          - name: Build TourGuide
+            run : |
+              cd TourGuide
+              ./gradlew build
