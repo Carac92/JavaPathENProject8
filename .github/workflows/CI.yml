@@ -10,7 +10,6 @@ on:
 # Work environment
 jobs:
   build_deploy_build:
-      needs: build
       runs-on: ubuntu-20.04
       steps:
         - name: Checkout repository
@@ -43,6 +42,7 @@ jobs:
             cd ..
 
     # Deploy the projects to build the TourGuide project
+        - needs : Build projects
         - name: Deploy GpsUtil, Rewards and TripPricer
           run: |
             java -jar Rewards/build/libs/rewards-1.0.0.jar &
