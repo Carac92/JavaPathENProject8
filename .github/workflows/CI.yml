@@ -89,4 +89,5 @@ jobs:
         - name: Build TourGuide
           run : |
             cd TourGuide
+            chmod +x gradlew
             ./gradlew build
