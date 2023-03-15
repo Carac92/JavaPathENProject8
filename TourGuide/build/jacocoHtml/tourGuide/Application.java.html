@@ -9,17 +9,17 @@ import java.util.Locale;
 
 /**
  * Main class
-<span class="fc" id="L12"> * This class is used to start the application</span>
+ * This class is used to start the application
  * Application that connects to 3 APIS and generates different endpoints for the front end application
  */
-<span class="nc" id="L15">@SpringBootApplication</span>
-<span class="nc" id="L16">@EnableFeignClients(&quot;tourGuide&quot;)</span>
-<span class="nc" id="L17">public class Application {</span>
+@SpringBootApplication
+@EnableFeignClients(&quot;tourGuide&quot;)
+<span class="fc" id="L17">public class Application {</span>
 
     public static void main(String[] args) {
-        Locale.setDefault(Locale.US);
-        SpringApplication.run(Application.class, args);
-    }
+<span class="nc" id="L20">        Locale.setDefault(Locale.US);</span>
+<span class="nc" id="L21">        SpringApplication.run(Application.class, args);</span>
+<span class="nc" id="L22">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

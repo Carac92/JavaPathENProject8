@@ -9,27 +9,27 @@ import tourGuide.model.VisitedLocation;
  * This class is used to store the user reward information
  */
 public class UserReward {
-<span class="fc" id="L12"></span>
-<span class="fc" id="L13">	public final VisitedLocation visitedLocation;</span>
-<span class="fc" id="L14">	public final Attraction attraction;</span>
-<span class="fc" id="L15">	private int rewardPoints;</span>
+
+	public final VisitedLocation visitedLocation;
+	public final Attraction attraction;
+	private int rewardPoints;
 <span class="fc" id="L16">	public UserReward(VisitedLocation visitedLocation, Attraction attraction, int rewardPoints) {</span>
-		this.visitedLocation = visitedLocation;
-<span class="nc" id="L18">		this.attraction = attraction;</span>
-<span class="nc" id="L19">		this.rewardPoints = rewardPoints;</span>
-<span class="nc" id="L20">	}</span>
-<span class="nc" id="L21">	</span>
-	public UserReward(VisitedLocation visitedLocation, Attraction attraction) {
-		this.visitedLocation = visitedLocation;
+<span class="fc" id="L17">		this.visitedLocation = visitedLocation;</span>
+<span class="fc" id="L18">		this.attraction = attraction;</span>
+<span class="fc" id="L19">		this.rewardPoints = rewardPoints;</span>
+<span class="fc" id="L20">	}</span>
+	
+<span class="nc" id="L22">	public UserReward(VisitedLocation visitedLocation, Attraction attraction) {</span>
+<span class="nc" id="L23">		this.visitedLocation = visitedLocation;</span>
 <span class="nc" id="L24">		this.attraction = attraction;</span>
 <span class="nc" id="L25">	}</span>
 
 	public void setRewardPoints(int rewardPoints) {
 <span class="nc" id="L28">		this.rewardPoints = rewardPoints;</span>
-	}
+<span class="nc" id="L29">	}</span>
 	
 	public int getRewardPoints() {
-		return rewardPoints;
+<span class="nc" id="L32">		return rewardPoints;</span>
 	}
 	
 }

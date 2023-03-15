@@ -100,19 +100,19 @@ public class TourGuideService {
 <span class="fc" id="L100">		return visitedLocation;</span>
 	}
 	public void trackUserLocationAsync(User user) {
-<span class="fc" id="L103">		executorService.execute(() -&gt; trackUserLocation(user));</span>
-<span class="fc" id="L104">	}</span>
+<span class="nc" id="L103">		executorService.execute(() -&gt; trackUserLocation(user));</span>
+<span class="nc" id="L104">	}</span>
 	public void shutdown() throws InterruptedException {
-<span class="fc" id="L106">		executorService.shutdown();</span>
+<span class="nc" id="L106">		executorService.shutdown();</span>
 		try{
-<span class="pc bpc" id="L108" title="1 of 2 branches missed.">			if (!executorService.awaitTermination(15, TimeUnit.MINUTES)) {</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">			if (!executorService.awaitTermination(15, TimeUnit.MINUTES)) {</span>
 <span class="nc" id="L109">				executorService.shutdownNow();</span>
 			}
 <span class="nc" id="L111">		} catch (InterruptedException e) {</span>
 <span class="nc" id="L112">			e.printStackTrace();</span>
 <span class="nc" id="L113">			executorService.shutdownNow();</span>
-<span class="fc" id="L114">		}</span>
-<span class="fc" id="L115">	}</span>
+<span class="nc" id="L114">		}</span>
+<span class="nc" id="L115">	}</span>
 	public List&lt;Attraction&gt; getTheFiveNearByAttractions(VisitedLocation visitedLocation) {
 <span class="nc" id="L117">		HashMap&lt;Attraction,Double&gt; nearbyAttractions = new HashMap&lt;&gt;();</span>
 <span class="nc bnc" id="L118" title="All 2 branches missed.">		for(Attraction attraction : gpsUtil.getAttractions()) {</span>

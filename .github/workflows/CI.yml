@@ -1,0 +1,72 @@
+# Nom du workflow
+name: Continuous Integration
+
+# Événement déclenchant le workflow (ici, chaque fois qu'un push est effectué sur la branche "main")
+on:
+  push:
+    branches:
+      - '*' # Toutes les branches
+
+# Environnement de travail (dans ce cas, une machine virtuelle sous Ubuntu 20.04)
+jobs:
+  jobs:
+    build:
+      runs-on: ubuntu-20.04
+
+      # Étapes à effectuer pour le job "build"
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
+
+        # Installe Gradle sur la machine virtuelle
+        - name: Setup Gradle
+          uses: gradle/gradle-build-action@v1.4.0
+          with:
+            gradle-version: '7.3.3'
+
+        # Exécute les tâches Gradle pour chaque projet
+        - name: Build projects
+          run: |
+            cd Rewards
+            ./gradlew build
+            cd ..
+            cd GpsUtil
+            ./gradlew build
+            cd ..
+            cd TripPricer
+            ./gradlew build
+            cd ..
+    deploy_build:
+        needs: build
+        runs-on: ubuntu-20.04
+        steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
+        - name: Setup Gradle
+          uses: gradle/gradle-build-action@v1.4.0
+          with:
+              gradle-version: '7.3.3'
+
+      # Construit l'image Docker pour le projet GpsUtil
+        - name: Build GpsUtil Docker Image
+          run: docker build -t gpsutil:latest ./GpsUtil
+
+      # Lance le conteneur Docker pour le projet GpsUtil
+        - name: Deploy GpsUtil Docker Container
+          run: |
+            docker run -d --name gpsutil gpsutil:latest
+            sleep 30
+        - name : Deploy Rewards Docker Container
+          run: |
+            docker build -t rewards:latest ./Rewards
+            docker run -d --name rewards rewards:latest
+            sleep 30
+        - name: Deploy TripPricer Docker Container
+          run: |
+            docker build -t trippricer:latest ./TripPricer
+            docker run -d --name trippricer trippricer:latest
+            sleep 30
+        - name: Build TourGuide
+          run : |
+            cd TourGuide
+            ./gradlew build
