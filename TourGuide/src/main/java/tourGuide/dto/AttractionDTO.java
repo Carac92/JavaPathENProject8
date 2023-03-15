@@ -1,9 +1,13 @@
 package tourGuide.dto;
 
-import tourGuide.model.Attraction;
+
 import tourGuide.model.Location;
 import tourGuide.model.VisitedLocation;
 
+/**
+ * AttractionDTO class is used to return the attraction name, attraction location,
+ * user location, distance and reward points
+ */
 public class AttractionDTO extends Location {
 
     private String attractionName;

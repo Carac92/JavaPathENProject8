@@ -3,6 +3,7 @@ package tourGuide.controller;
 import java.util.List;
 
 import io.swagger.v3.oas.annotations.Operation;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,12 +17,16 @@ import tourGuide.model.VisitedLocation;
 import tourGuide.service.TourGuideService;
 import tourGuide.user.User;
 
+/**
+ * This class is used to expose the TourGuide service to the front end application
+ */
 
 @RestController
 public class TourGuideController {
 
 	@Autowired
 	TourGuideService tourGuideService;
+    private Logger log = org.slf4j.LoggerFactory.getLogger(TourGuideController.class);
 
     @Operation(summary = "Returns a greeting message")
     @GetMapping("/")
@@ -32,6 +37,7 @@ public class TourGuideController {
     @Operation(summary = "Return a Location for a given username")
     @GetMapping("/getLocation")
     public String getLocation(@RequestParam String userName) {
+        log.info("get location for user: " + userName);
     	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));
 		return JsonStream.serialize(visitedLocation.location);
     }
@@ -48,6 +54,7 @@ public class TourGuideController {
     @Operation(summary = "Return the five nearest attractions for a given username")
     @GetMapping("/getNearbyAttractions")
     public String getTheFiveNearestAttractions(@RequestParam String userName) {
+        log.info("get the five nearest attractions for user: " + userName);
     	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));
     	return JsonStream.serialize(tourGuideService.getTheFiveNearByAttractionsDTO(visitedLocation, getUser(userName)).toString());
     }
@@ -55,6 +62,7 @@ public class TourGuideController {
     @Operation(summary = "Return the rewards for a given username")
     @GetMapping("/getRewards")
     public String getRewards(@RequestParam String userName) {
+        log.info("get rewards for user: " + userName);
     	return JsonStream.serialize(tourGuideService.getUserRewards(getUser(userName)));
     }
 
@@ -70,18 +78,20 @@ public class TourGuideController {
     	//        "019b04a9-067a-4c76-8817-ee75088c3822": {"longitude":-48.188821,"latitude":74.84371} 
     	//        ...
     	//     }
-    	
+    	log.info("get all current locations for all users");
     	return JsonStream.serialize(tourGuideService.getCurrentLocationsDTO().toString());
     }
 
     @Operation(summary = "Returns a list of providers for a given username")
     @GetMapping ("/getTripDeals")
     public String getTripDeals(@RequestParam String userName) {
+        log.info("get trip deals for user: " + userName);
     	List<Provider> providers = tourGuideService.getTripDeals(getUser(userName));
     	return JsonStream.serialize(providers);
     }
     
     private User getUser(String userName) {
+        log.info("get user: " + userName);
     	return tourGuideService.getUser(userName);
     }
    

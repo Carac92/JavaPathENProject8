@@ -2,6 +2,9 @@ package tourGuide.model;
 
 import java.util.UUID;
 
+/**
+ * Provider class is used to store the provider information
+ */
 public class Provider {
     public final String name;
     public final double price;

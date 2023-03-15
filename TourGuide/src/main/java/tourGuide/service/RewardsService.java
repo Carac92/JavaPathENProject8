@@ -18,6 +18,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * RewardsService class is used to calculate the rewards for a given user
+ * It uses the GpsUtilProxy and RewardsProxy to get the data
+ * It uses the ExecutorService to calculate the rewards with multithreading
+ */
 @Service
 public class RewardsService {
     private static final double STATUTE_MILES_PER_NAUTICAL_MILE = 1.15077945;
@@ -28,9 +33,9 @@ public class RewardsService {
 	private int proximityBuffer = defaultProximityBuffer;
 	private int attractionProximityRange = 200;
 	@Autowired
-	private GpsUtilProxy gpsUtil;
+	private final GpsUtilProxy gpsUtil;
 	@Autowired
-	private RewardsProxy rewardsCentral;
+	private final RewardsProxy rewardsCentral;
 	
 	public RewardsService(GpsUtilProxy gpsUtil, RewardsProxy rewardCentral) {
 		this.gpsUtil = gpsUtil;

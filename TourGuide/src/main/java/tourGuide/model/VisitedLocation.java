@@ -4,6 +4,9 @@ package tourGuide.model;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ * VisitedLocation class is used to store the visited location information
+ */
 public class VisitedLocation {
         public final UUID userId;
         public final Location location;

@@ -1,5 +1,8 @@
 package tourGuide.model;
 
+/**
+ * Location class is used to store the location information
+ */
 public class Location {
     public final double longitude;
     public final double latitude;

@@ -3,6 +3,9 @@ package tourGuide.model;
 
 import java.util.UUID;
 
+/**
+ * Attraction class is used to store the attraction information
+ */
 public class Attraction extends Location {
     public final String attractionName;
     public final String city;

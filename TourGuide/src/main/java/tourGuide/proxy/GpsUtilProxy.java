@@ -11,6 +11,9 @@ import tourGuide.model.VisitedLocation;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * GpsUtilProxy class is used to expose the GpsUtil API to the application
+ */
 @FeignClient(name = "GpsUtilAPI", url = "${gpsUtilUrl}")
 public interface GpsUtilProxy {
     @GetMapping(value = "/attractions")

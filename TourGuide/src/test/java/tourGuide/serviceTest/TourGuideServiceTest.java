@@ -26,6 +26,9 @@ import tourGuide.user.UserPreferences;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * This class is used to test the TourGuideService class
+ */
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 public class TourGuideServiceTest {

@@ -8,6 +8,9 @@ import tourGuide.model.Provider;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * TripPricerProxy class is used to expose the TripPricer API to the application
+ */
 @FeignClient(name = "TripPricerAPI", url = "${tripPricerUrl}")
 public interface TripPricerProxy {
     @GetMapping("/getPrice/{apiKey}/{attractionId}/{adults}/{children}/{nightsStay}/{rewardsPoints}")

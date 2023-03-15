@@ -22,6 +22,10 @@ import tourGuide.service.RewardsService;
 import tourGuide.service.TourGuideService;
 import tourGuide.user.User;
 import tourGuide.user.UserReward;
+
+/**
+ * This class is used to test the RewardsService class
+ */
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 public class RewardsServiceTest {

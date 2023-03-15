@@ -1,7 +1,6 @@
 package tourGuide.performanceTest;
 
 import org.apache.commons.lang3.time.StopWatch;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +23,9 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * This class is used to test the performance of the application for 100K User connected
+ */
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 public class TestPerformance {
@@ -59,7 +61,6 @@ public class TestPerformance {
 	 */
 	
 
-	//@Disabled
 	@Test
 	public void highVolumeTrackLocation() throws InterruptedException {
 		RewardsService rewardsService = new RewardsService(gpsUtil, rewardsCentral );

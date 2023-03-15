@@ -24,6 +24,11 @@ import tourGuide.tracker.Tracker;
 import tourGuide.user.User;
 import tourGuide.user.UserReward;
 
+/**
+ * TourGuideService class is used to manage the users and their locations
+ * It uses the GpsUtilProxy and TripPricerProxy to get the data
+ * It uses the ExecutorService to track the user location with multithreading
+ */
 @Service
 public class TourGuideService {
 	private Logger logger = LoggerFactory.getLogger(TourGuideService.class);
@@ -91,7 +96,7 @@ public class TourGuideService {
 	public VisitedLocation trackUserLocation(User user) {
 		VisitedLocation visitedLocation = gpsUtil.getUserLocation(user.getUserId());
 		user.addToVisitedLocations(visitedLocation);
-		rewardsService.calculateRewards(user);
+		rewardsService.calculateRewardsAsync(user);
 		return visitedLocation;
 	}
 	public void trackUserLocationAsync(User user) {

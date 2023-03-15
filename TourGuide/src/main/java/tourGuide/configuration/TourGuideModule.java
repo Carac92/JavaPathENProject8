@@ -8,7 +8,11 @@ import tourGuide.proxy.GpsUtilProxy;
 import tourGuide.proxy.RewardsProxy;
 import tourGuide.proxy.TripPricerProxy;
 import tourGuide.service.RewardsService;
-
+/**
+ * Configuration class for TourGuide
+ * This class is used to configure the bean of RewardsService for the application
+ * Autowired to the different proxy classes
+ */
 @Configuration
 public class TourGuideModule {
 	@Autowired

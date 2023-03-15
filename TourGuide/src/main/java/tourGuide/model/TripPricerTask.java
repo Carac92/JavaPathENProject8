@@ -1,10 +1,11 @@
 package tourGuide.model;
 
 
-import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.Callable;
 
+/**
+ * TripPricerTask class is used to store the trip pricer task information
+ */
 public class TripPricerTask {
     private final UUID attractionId;
     private final String apiKey;

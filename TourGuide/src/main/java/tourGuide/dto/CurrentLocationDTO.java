@@ -4,6 +4,9 @@ import tourGuide.model.Location;
 
 import java.util.UUID;
 
+/**
+ * CurrentLocationDTO class is used to return the user id, user location
+ */
 public class CurrentLocationDTO extends Location {
 
     private UUID userId;
