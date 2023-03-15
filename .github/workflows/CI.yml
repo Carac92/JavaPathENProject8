@@ -26,7 +26,7 @@ jobs:
             gradle-version: '7.3.3'
 
     # Build the projects
-        - name: build_projects
+        - name: build
           run: |
             cd Rewards
             ./gradlew clean
@@ -43,7 +43,7 @@ jobs:
 
     # Deploy the projects to build the TourGuide project
         - name: Deploy_GpsUtil_Rewards_and_TripPricer
-          needs: build_projects
+          needs: build
           run: |
             java -jar Rewards/build/libs/rewards-1.0.0.jar &
             java -jar GpsUtil/build/libs/gpsUtil-1.0.0.jar &
