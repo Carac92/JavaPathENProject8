@@ -57,6 +57,17 @@ jobs:
             gradle-version: '7.3.3'
 
     # Construit l'image Docker pour le projet GpsUtil
+        - name: Build projects
+          run: |
+            cd Rewards
+            ./gradlew build
+            cd ..
+            cd GpsUtil
+            ./gradlew build
+            cd ..
+            cd TripPricer
+            ./gradlew build
+            cd ..
         - name: Build GpsUtil Docker Image
           run: docker build -t gpsutil:latest ./GpsUtil
 
