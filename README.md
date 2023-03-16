@@ -26,8 +26,7 @@ TourGuide :
  
  # Architecture
  
- <img width="464" alt="image" src="https://user-images.githubusercontent.com/96061779/225614243-d0e081f7-9ad3-474f-8d53-11df99ee9ee3.png">
-
+<img width="443" alt="image" src="https://user-images.githubusercontent.com/96061779/225619466-7d3d6bdf-45af-4128-9ece-74197f577a85.png">
 
 # Documentation
 
