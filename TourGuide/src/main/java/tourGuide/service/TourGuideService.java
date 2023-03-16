@@ -22,6 +22,7 @@ import tourGuide.proxy.GpsUtilProxy;
 import tourGuide.proxy.TripPricerProxy;
 import tourGuide.tracker.Tracker;
 import tourGuide.user.User;
+import tourGuide.user.UserPreferences;
 import tourGuide.user.UserReward;
 
 /**
@@ -153,6 +154,11 @@ public class TourGuideService {
 			currentLocationDTOList.add(currentLocationDTO);
 		}
 		return currentLocationDTOList;
+	}
+
+	public void updateUserPreferences(String userName, UserPreferences userPreferences) {
+		User user = getUser(userName);
+		user.setUserPreferences(userPreferences);
 	}
 	
 	private void addShutDownHook() {

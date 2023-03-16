@@ -5,9 +5,7 @@ import java.util.List;
 import io.swagger.v3.oas.annotations.Operation;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.jsoniter.output.JsonStream;
 
@@ -16,6 +14,7 @@ import tourGuide.model.Provider;
 import tourGuide.model.VisitedLocation;
 import tourGuide.service.TourGuideService;
 import tourGuide.user.User;
+import tourGuide.user.UserPreferences;
 
 /**
  * This class is used to expose the TourGuide service to the front end application
@@ -88,6 +87,12 @@ public class TourGuideController {
         log.info("get trip deals for user: " + userName);
     	List<Provider> providers = tourGuideService.getTripDeals(getUser(userName));
     	return JsonStream.serialize(providers);
+    }
+    @Operation(summary = "Update user preferences for a given username")
+    @PutMapping("/updateUserPreferences")
+    public void  updateUserPreferences(@RequestParam UserPreferences userPreferences, @RequestParam String userName) {
+        log.info("update user preferences of : " + userName);
+        	tourGuideService.updateUserPreferences(userName, userPreferences);
     }
     
     private User getUser(String userName) {
