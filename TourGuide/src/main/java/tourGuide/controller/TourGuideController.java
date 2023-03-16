@@ -5,6 +5,7 @@ import java.util.List;
 import io.swagger.v3.oas.annotations.Operation;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.jsoniter.output.JsonStream;
@@ -15,6 +16,8 @@ import tourGuide.model.VisitedLocation;
 import tourGuide.service.TourGuideService;
 import tourGuide.user.User;
 import tourGuide.user.UserPreferences;
+
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * This class is used to expose the TourGuide service to the front end application
@@ -88,11 +91,12 @@ public class TourGuideController {
     	List<Provider> providers = tourGuideService.getTripDeals(getUser(userName));
     	return JsonStream.serialize(providers);
     }
-    @Operation(summary = "Update user preferences for a given username")
+    @Operation(summary = "Update user preferences for a given username return http code 202.")
     @PutMapping("/updateUserPreferences")
-    public void  updateUserPreferences(@RequestParam UserPreferences userPreferences, @RequestParam String userName) {
+    public ResponseEntity <String> updateUserPreferences(@RequestParam UserPreferences userPreferences, @RequestParam String userName) {
         log.info("update user preferences of : " + userName);
-        	tourGuideService.updateUserPreferences(userName, userPreferences);
+        tourGuideService.updateUserPreferences(userName, userPreferences);
+        return ResponseEntity.accepted().body("User preferences updated");
     }
     
     private User getUser(String userName) {
